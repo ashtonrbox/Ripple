@@ -1,0 +1,27 @@
+{
+  "name": "ripple",
+  "version": "0.0.0",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ashton Box",
+  "license": "ISC",
+  "description": "ai powered journal",
+  "dependencies": {
+    "marked": "^15.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashtonrbox/Ripple.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashtonrbox/Ripple/issues"
+  },
+  "homepage": "https://github.com/ashtonrbox/Ripple#readme",
+  "devDependencies": {
+    "electron": "^36.4.0"
+  }
+}
