@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ripple</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <img width="50px" src="https://image.pollinations.ai/prompt/Random%20blurred%20blobs%20with%20the%20colors:%20red%20orange%20pink" alt="">
-    
+    <div id="window">
+        <div id="drag"></div>
+
+        <div id="ripples">
+
+            <div class="ripple">
+                <div class="fallback"></div>
+                <div class="background"></div>
+                <div class="design">
+                    <div class="top">
+                        <div class="blend"></div>
+                        <img class="image" alt="">
+                    </div>
+                    <div class="bottom">
+                        <h2>friday 13th</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
     <script src="color-thief.js"></script>
     <script src="marked.min.js"></script>
-    <script type="module" src="node.js"></script>
+    <script type="module" src="pnode.js"></script>
     <script type="module" src="script.js"></script>
 </body>
 </html>

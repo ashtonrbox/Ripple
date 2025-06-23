@@ -1,4 +1,4 @@
-import { call } from "/node.js";
+import { call } from "./pnode.js";
 const colorThief = new ColorThief();
 
 async function recieve(message) {
@@ -21,8 +21,10 @@ function send(message) {
 
 window.send = send
 
-document.querySelector("img").crossOrigin = "anonymous";
+/*document.querySelector("img").crossOrigin = "anonymous";
 
 document.querySelector("img").addEventListener("load", function () {
     console.log(colorThief.getColor(document.querySelector("img")))
-})
+    document.body.style.backgroundColor = `rgb(${colorThief.getColor(document.querySelector("img"))})`;
+})*/
+

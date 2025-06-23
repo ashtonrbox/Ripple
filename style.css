@@ -1,0 +1,152 @@
+:root {
+    --white: #f7f7f7;
+    --grey: #dadada;
+    --black: #5b5b5b;
+
+    --transition: all 0.2s ease-in-out;
+
+    --gap: 20px;
+    --padding: 25px;
+    --borderRadius: 15px;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(assets/i.ttf);
+}
+
+@font-face {
+    font-family: 'Instrument';
+    src: url(assets/isr.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(assets/rm.ttf);
+}
+
+img[src=""] {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    font-size: 27px;
+    font-family: 'Instrument', sans-serif;
+    text-align: left;
+    color: var(--black);
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+}
+
+body {
+    background-image: url(assets/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+}
+
+#drag {
+    app-region: drag;
+    position: fixed;
+    width: 100%;
+    height: 25px;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#window {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+#ripples {
+    width: 100%;
+    padding: var(--padding);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+    overflow: scroll;
+}
+
+.ripple {
+    width: 100%;
+    height: 172.5px;
+    border-radius: var(--borderRadius);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.ripple:hover {
+    transform: scale(1.05);
+}
+
+.ripple .fallback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #a79d87ad;
+}
+
+.ripple .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ripple .design {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ripple .design>div {
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+}
+
+.ripple .design .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 15px;
+}
+
+.ripple .design .top {
+    padding: 0px;
+}
+
+.ripple .design .top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
