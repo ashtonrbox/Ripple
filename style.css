@@ -1,7 +1,10 @@
 :root {
     --white: #f7f7f7;
-    --grey: #dadada;
-    --black: #5b5b5b;
+    --grey: #878375bb;
+    --black: #625E52;
+    --dark: #C6BDA7;
+    --medium: #E7E1C9;
+    --shallow: #a79d87ad;
 
     --transition: all 0.2s ease-in-out;
 
@@ -41,10 +44,25 @@ img[src=""] {
     display: none;
 }
 
-h1,h2,h3,h4,h5,h6,p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+h1 {
+    font-family: 'Instrument';
+    font-size: 40px;
+    text-align: left;
+    color: var(--black);
+    opacity: 0.75;
+    mix-blend-mode: multiply;
 }
 
 h2 {
@@ -55,6 +73,44 @@ h2 {
     opacity: 0.75;
     mix-blend-mode: multiply;
 }
+
+h3 {
+    font-size: 20px;
+    font-family: 'Instrument', sans-serif;
+    text-align: left;
+    color: var(--black);
+    margin-bottom: 4px;
+}
+
+h5 {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    color: var(--black);
+    font-weight: 500;
+}
+
+p {
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    color: var(--black);
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    height: 81px;
+    font-size: 15px;
+    font-family: 'Inter';
+    padding: 8px;
+    background: none;
+    border: 1px dashed var(--dark);
+    border-radius: var(--borderRadius);
+    color: var(--black);
+}
+
+textarea::placeholder {color: #D3CCB6;}
 
 body {
     background-image: url(assets/bg.png);
@@ -90,6 +146,32 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap);
     overflow: scroll;
+    height: 100vh;
+    overflow-y: scroll;
+    grid-template-rows: 172px;
+}
+
+#add {
+    width: 100%;
+    height: 172.5px;
+    border-radius: var(--borderRadius);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: var(--shallow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed var(--grey);
+}
+
+#add h2 {
+    font-size: 65px !important;
+}
+
+#add:hover {
+    transform: scale(1.05);
 }
 
 .ripple {
@@ -110,7 +192,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #a79d87ad;
+    background-color: var(--shallow);
 }
 
 .ripple .background {
@@ -148,5 +230,121 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+}
+
+.animatedRipple {
+    animation: ripple 1.5s 1;
+}
+
+@keyframes ripple {
+    from {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#popups {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.popup {
+    position: absolute;
+    width: 270px;
+    height: 400px;
+    z-index: 99999;
+    background-color: var(--medium);
+    display: none;
+    border-radius: var(--borderRadius);
+    overflow: scroll;
+    box-shadow: 0 0 23px 0px var(--shallow);
+}
+
+.dragHeader {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    user-select: none;
+    cursor: grab;
+}
+
+.dragHeader:active {
+    cursor: grabbing;
+}
+
+.popup .one {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+}
+
+.popup .zero {
+    height: 135px;
+    padding: 15px;
+    padding-top: 7px;
+    background-image: url("https://image.pollinations.ai/prompt/A%20simple,%20feeling-evoking%20grainy%20gradient%20with%20the%20colors%20red,%20orange,%20pink.%20Make%20the%20image%20a%20simple%20blurred%20gradient%20of%20these%20colors,%20mimicking%20nature;%20like%20ripples%20of%20water,%20or%20the%20look%20of%20glass%20reflecting%20the%20colors.");
+    background-size: cover;
+    background-position: center;
+}
+
+#createSelect {
+    width: 100%;
+    display: flex;
+    position: relative;
+    background: var(--dark);
+    border-radius: var(--borderRadius);
+    padding: 5px;
+}
+
+.slide {
+    width: calc(100% - 10px);
+    position: absolute;
+    height: calc(50% - 7px);
+    background: var(--medium);
+    z-index: 0;
+    border-radius: var(--borderRadius);
+    transition: var(--transition);
+    top: 5px;
+    left: 5px;
+    pointer-events: none;
+}
+
+#options {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    z-index: 1;
+    gap: 3px;
+}
+
+#options h5 {
+    width: 100%;
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+#createSubmit {
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    font-family: 'Inter';
+    font-size: 16px;
+    border-radius: var(--borderRadius);
+    border: none;
 }

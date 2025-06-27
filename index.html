@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ripple</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div id="window">
@@ -13,18 +15,41 @@
 
         <div id="ripples">
 
-            <div class="ripple">
-                <div class="fallback"></div>
-                <div class="background"></div>
-                <div class="design">
-                    <div class="top">
-                        <div class="blend"></div>
-                        <img class="image" alt="">
-                    </div>
-                    <div class="bottom">
-                        <h2>friday 13th</h2>
+            <div id="add">
+                <h2>+</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="popups">
+
+        <div class="popup" id="create">
+            <div class="dragHeader"></div>
+
+            <div class="zero">
+                <h1>Heading 1</h1>
+                <img src="/assets/curtains/curtain0.png" alt="">
+            </div>
+
+            <div class="one">
+
+                <textarea id="createText" placeholder="How was your day?"></textarea>
+
+                <div>
+                    <h3>I'd Like:</h3>
+
+                    <div id="createSelect">
+                        <div class="slide"></div>
+                        <div id="options">
+                            <h5 data-pos="0">To keep this to myself</h5>
+                            <h5 data-pos="1">To receive an AI reflection</h5>
+                        </div>
                     </div>
                 </div>
+
+                <button id="createSubmit">+ Add Ripple</button>
             </div>
 
         </div>
@@ -36,4 +61,5 @@
     <script type="module" src="pnode.js"></script>
     <script type="module" src="script.js"></script>
 </body>
+
 </html>
