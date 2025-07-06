@@ -5,6 +5,7 @@ const path = require('path');
 
 async function downloadImage(imageUrl, filename) {
     try {
+        console.log("(Fetch) Downloading image:", imageUrl);
         const res = await fetch(imageUrl);
         if (!res.ok) throw new Error(`Failed to download: ${res.statusText}`);
 
@@ -19,14 +20,14 @@ async function downloadImage(imageUrl, filename) {
 
         return fullPath;
     } catch (error) {
-        return "FAIL";
+        throw error;
     }
 }
 
 ipcMain.handle('download-image', async (event, imageUrl) => {
     try {
-        const ext = path.extname(new URL(imageUrl).pathname) || '.jpg';
-        const filename = `bg-${Date.now()}${ext}`;
+        console.log("(Initial) Downloading image:", imageUrl);
+        const filename = `bg-${Date.now()}.jpg`;
         const filePath = await downloadImage(imageUrl, filename);
         return { success: true, filePath };
     } catch (err) {

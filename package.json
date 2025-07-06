@@ -11,9 +11,6 @@
   "author": "Ashton Box",
   "license": "ISC",
   "description": "ai powered journal",
-  "dependencies": {
-    "marked": "^15.0.12"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ashtonrbox/Ripple.git"

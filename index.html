@@ -25,39 +25,83 @@
 
     <div id="popups">
 
-        <div class="popup" id="create">
+        <div id="search">
+            <input type="text" id="searchbar" placeholder="Search by emotions or keywords...">
+        </div>
+
+        <div class="popup" style="overflow: hidden;" id="create">
+            <div class="dragHeader"></div>
+
+            <div id="createSection">
+
+                <div class="zero">
+                    <h1>Heading 1</h1>
+                    <img draggable="false" src="assets/curtains/curtain0.png" alt="">
+                </div>
+
+                <div class="one">
+
+                    <textarea id="createText" placeholder="How was your day?"></textarea>
+
+                    <div>
+                        <h3>I'd Like:</h3>
+
+                        <div id="createSelect">
+                            <div class="slide"></div>
+                            <div id="options">
+                                <h5 data-pos="0">To keep this to myself</h5>
+                                <h5 data-pos="1">To receive an AI reflection</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="button" id="createSubmit">+ Add Ripple</button>
+                </div>
+            </div>
+            <div id="loadingSection">
+                <img draggable="false" src="assets/logo.png" loading="lazy" alt="">
+                <h3>Creating Ripple...</h3>
+            </div>
+        </div>
+
+        <div class="popup" id="details">
             <div class="dragHeader"></div>
 
             <div class="zero">
                 <h1>Heading 1</h1>
-                <img src="/assets/curtains/curtain0.png" alt="">
+                <img draggable="false" src="assets/curtains/curtain0.png" alt="">
             </div>
 
             <div class="one">
 
-                <textarea id="createText" placeholder="How was your day?"></textarea>
-
-                <div>
-                    <h3>I'd Like:</h3>
-
-                    <div id="createSelect">
-                        <div class="slide"></div>
-                        <div id="options">
-                            <h5 data-pos="0">To keep this to myself</h5>
-                            <h5 data-pos="1">To receive an AI reflection</h5>
+                <div id="viewSection">
+                    <p class="margin" id="userInput"></p>
+                    <h3>Emotions:</h3>
+                    <p class="margin" id="emotionsText"></p>
+                    <div id="reflection">
+                        <h3>AI Reflection:</h3>
+                        <div id="reflectionText">
+                            <p></p>
                         </div>
+                    </div>
+                    <div id="buttons">
+                        <button class="button" id="edit" title="Edit this Ripple">Edit</button>
+                        <button class="button" id="delete" title="Delete this Ripple"
+                            style="background: #ef453180; color: #963b30; width: 40%;">Delete</button>
                     </div>
                 </div>
 
-                <button id="createSubmit">+ Add Ripple</button>
-            </div>
+                <div id="editSection">
+                    <textarea name="" id="editText" id="" style="height: 181px;"></textarea>
+                    <button class="button" id="editSubmit">Save</button>
+                </div>
 
+            </div>
         </div>
 
     </div>
 
     <script src="color-thief.js"></script>
-    <script src="marked.min.js"></script>
     <script type="module" src="pnode.js"></script>
     <script type="module" src="script.js"></script>
 </body>
