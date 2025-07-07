@@ -43,6 +43,7 @@ function createWindow() {
         resizable: false,
         titleBarStyle: 'hidden',
         frame: false,
+        icon: path.join(__dirname, 'assets/icon.icns'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true, 

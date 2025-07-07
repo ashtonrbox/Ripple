@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "electron-builder"
   },
-  "keywords": [],
+  "keywords": ["ai", "journal", "reflection", "emotions"],
   "author": "Ashton Box",
   "license": "ISC",
   "description": "ai powered journal",
@@ -20,6 +20,19 @@
   },
   "homepage": "https://github.com/ashtonrbox/Ripple#readme",
   "devDependencies": {
-    "electron": "^36.4.0"
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "productName": "Ripple",
+    "appId": "com.ripple.app",
+    "mac": {
+      "icon": "assets/icon.icns"
+    }
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "ashtonrbox",
+    "repo": "Ripple"
   }
 }
