@@ -21,7 +21,6 @@ const days = {
 }
 
 const th = {
-    "0": "th",
     "1": "st",
     "2": "nd",
     "3": "rd",
@@ -30,7 +29,29 @@ const th = {
     "6": "th",
     "7": "th",
     "8": "th",
-    "9": "th"
+    "9": "th",
+    "10": "th",
+    "11": "th",
+    "12": "th",
+    "13": "th",
+    "14": "th",
+    "15": "th",
+    "16": "th",
+    "17": "th",
+    "18": "th",
+    "19": "th",
+    "20": "th",
+    "21": "st",
+    "22": "nd",
+    "23": "rd",
+    "24": "th",
+    "25": "th",
+    "26": "th",
+    "27": "th",
+    "28": "th",
+    "29": "th",
+    "30": "th",
+    "31": "st"
 }
 
 const emotionColors = {
@@ -56,7 +77,10 @@ const emotionColors = {
 };
 
 let publicStorage = JSON.parse(localStorage.getItem("ripple_data"))
-let ripplesAmnt = Object.keys(storage("return", "ripples")).length
+let ripplesAmnt = 0
+if (publicStorage) {
+    ripplesAmnt = Object.keys(storage("return", "ripples")).length
+}
 
 function storage(method, key, value) {
     switch (method) {
@@ -109,7 +133,7 @@ if (!publicStorage || publicStorage === null) {
 }
 
 const placeholders = ["How was your day?", "Write like no one will ever read it.", "Start anywhere. The first word is enough.", "However you're feeling is valid.", "This journal's always glad to hear from you.", "What's floating around in your mind right now?"]
-const date = days[new Date().getDay()].toLowerCase() + " " + new Date().getDate() + th[new Date().getDate().toString().slice(-1)];
+const date = days[new Date().getDay()].toLowerCase() + " " + new Date().getDate() + th[new Date().getDate().toString()];
 
 function formatShortDate(isoString) {
     const date = new Date(isoString);
@@ -284,6 +308,7 @@ options.forEach((option, i) => {
 moveSlide(0, true);
 
 function popup(method, popup, cords, details, id) {
+    console.log(details)
     if (method === "show") {
         popups.style.display = "block";
 
@@ -335,7 +360,8 @@ function popup(method, popup, cords, details, id) {
             document.querySelector("#details #editSection").style.display = "none"
 
             document.querySelector("#details h1").textContent = details.title
-            document.querySelector("#details .zero").style.backgroundImage = `url(${details.image})`
+            document.querySelector("#details .zero").style.backgroundImage = `url("${details.image}")`
+            document.querySelector("#details .zero").style.backgroundPosition = "center"
             document.querySelector("#details img").setAttribute("src", `assets/curtains/curtain${details.curtain}.png`)
             document.querySelector("#details p").textContent = details.content
             document.querySelector("#emotionsText").textContent = details.emotions.join(", ")
@@ -489,7 +515,7 @@ createSubmit.addEventListener("click", () => {
                 let extractImage = document.createElement("img");
                 extractImage.setAttribute("crossorigin", "anonymous");
                 extractImage.style.display = "none";
-                extractImage.setAttribute("src", seclude(imagePath));
+                extractImage.setAttribute("src", `file://${imagePath}`);
                 extractImage.addEventListener("load", () => {
                     theifColor = colorThief.getColor(extractImage);
                     let createDate = new Date().toISOString()
@@ -500,7 +526,7 @@ createSubmit.addEventListener("click", () => {
                         "date": createDate,
                         "content": document.getElementById("createText").value,
                         "curtain": document.querySelector("#create img").getAttribute("src").split("curtains/curtain")[1].split(".png")[0],
-                        "image": seclude(imagePath),
+                        "image": `file://${imagePath}`,
                         "choice": document.querySelector(".slide").style.transform === "translateY(0px)" ? "keep" : "reflect",
                         "reflection": extract(result).reflection,
                         "emotions": extract(result).emotions,
@@ -603,6 +629,7 @@ if (ripplesAmnt > 0) {
 }
 
 function createRipple(id, data, animate) {
+    console.log(data)
     let rippleContainer = document.createElement("div")
     rippleContainer.classList.add("ripple")
 

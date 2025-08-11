@@ -12,7 +12,7 @@ async function downloadImage(imageUrl, filename) {
         const arrayBuffer = await res.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        const saveDir = path.join(__dirname, 'ripple_bgs');
+        const saveDir = path.join(app.getPath('userData'), 'ripple_bgs');
         await fs.mkdir(saveDir, { recursive: true });
 
         const fullPath = path.join(saveDir, filename);
@@ -43,7 +43,6 @@ function createWindow() {
         resizable: false,
         titleBarStyle: 'hidden',
         frame: false,
-        icon: path.join(__dirname, 'assets/icon.icns'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true, 

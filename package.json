@@ -24,8 +24,9 @@
     "electron-builder": "^26.0.12"
   },
   "build": {
+    "icon": "assets/icon.icns",
     "productName": "Ripple",
-    "appId": "com.ripple.app",
+    "appId": "com.ashtonrbox.ripple",
     "mac": {
       "icon": "assets/icon.icns"
     }
